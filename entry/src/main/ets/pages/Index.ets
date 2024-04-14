@@ -1,6 +1,5 @@
-import buyIndex from '../view/buyPage/buyIndex'
+import buy_buyIndex from './buy_buyIndex'
 import userIndex from '../view/userPage/userIndex'
-
 @Entry
 @Component
 struct Index {
@@ -19,13 +18,13 @@ struct Index {
   }
 
   build() {
-    Tabs({ barPosition: BarPosition.End, index: 3 }) {
+    Tabs({ barPosition: BarPosition.End, index: 1 }) {
       TabContent() {
         Text("推荐")
       }.tabBar(this.TabBerBuilder($r('app.string.tab_commend'), $r('app.media.tab_commend'), 0))
 
       TabContent() {
-        buyIndex()
+        buy_buyIndex()
       }.tabBar(this.TabBerBuilder($r('app.string.tab_buy'), $r('app.media.tab_buy'), 1))
 
       TabContent() {

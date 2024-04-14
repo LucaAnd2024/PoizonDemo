@@ -1,5 +1,5 @@
 @Component
-export default struct Header {
+export default struct buy_Header {
   build() {
     Row() {
       //事件
@@ -27,5 +27,7 @@ export default struct Header {
     }
     .width('90%')
     .margin({top:14})
+
   }
+
 }

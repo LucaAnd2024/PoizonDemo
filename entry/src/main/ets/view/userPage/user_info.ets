@@ -18,7 +18,7 @@ export default struct user_info {
 
         Text('未设置签名')
           .fontWeight(0)
-          .fontSize(14)
+          .fontSize(13)
           .fontColor($r('app.color.gray'))
       }
       .alignItems(HorizontalAlign.Start)

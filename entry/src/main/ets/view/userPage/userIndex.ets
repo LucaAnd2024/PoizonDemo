@@ -5,7 +5,26 @@ import user_interaction from './user_interaction'
 
 import user_buyDetail from './user_buyDetail'
 import user_order from './user_order'
+@Extend(Text)
+function light_character() {
+  .fontSize(13)
+  .fontColor($r('app.color.light_gray'))
 
+}
+
+@Extend(Text)
+function normal_character() {
+  .fontSize(13)
+  .fontColor($r('app.color.light_gray'))
+
+}
+
+@Extend(Text)
+function bold_character() {
+  .fontSize(13)
+  .fontColor($r('app.color.light_gray'))
+
+}
 
 @Component
 export default struct userIndex {

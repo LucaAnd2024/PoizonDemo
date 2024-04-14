@@ -1,5 +1,5 @@
 @Component
-export default struct SearchBar {
+export default struct buy_SearchBar {
   build() {
     Row({space:8}){
       Row() {

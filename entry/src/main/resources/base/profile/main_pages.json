@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/Index",
-    "pages/Welcome_Page"
+    "pages/Welcome_Page",
+    "pages/buy_buyPage"
   ]
 }

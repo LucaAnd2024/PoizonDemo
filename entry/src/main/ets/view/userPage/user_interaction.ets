@@ -1,3 +1,4 @@
+
 @Component
 export default struct user_interaction {
   build() {
@@ -21,9 +22,9 @@ export default struct user_interaction {
         .fontSize(20)
         .fontWeight(20)
       Text(title)
-        .fontSize(12)
-        .fontWeight(0)
-        .fontColor($r('app.color.gray'))
+        .fontSize(13)
+        .fontColor($r('app.color.light_gray'))
+
     }
     .width('25%')
 

@@ -1,8 +1,10 @@
-import RecommendShow from './RecommendShow'
+import buy_RecommendShow from './buy_RecommendShow'
 
 
 @Component
-export default struct productList {
+export default struct buy_productList {
+
+
   build() {
     Column() {
 
@@ -11,7 +13,7 @@ export default struct productList {
         Tabs() {
           TabContent() {
             //商品展示页
-            RecommendShow()
+            buy_RecommendShow()
           }.tabBar('推荐')
 
           TabContent() {
@@ -61,12 +63,15 @@ export default struct productList {
             Image($r('app.media.buy_productCategory')).width(20).height(20).margin({ left: 12 })
             Text('分类').fontSize(12).fontColor($r('app.color.Black')).margin({ left: 5, right: 12 })
           }.alignItems(VerticalAlign.Center)
-        }.backgroundColor($r('app.color.start_window_background')).width(90).height(40)
+        }
+        .backgroundColor($r('app.color.start_window_background'))
+        .width(90)
+        .height(40)
         .position({ x: 255, y: 8 })
+
 
       }
     }
-
 
     .height('100%')
     .width('90%')

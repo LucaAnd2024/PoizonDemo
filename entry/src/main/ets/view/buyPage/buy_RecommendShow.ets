@@ -1,5 +1,7 @@
+import router from '@ohos.router'
+
 @Component
-export default struct RecommendShow {
+export default struct buy_RecommendShow {
   build() {
 
     Column() {
@@ -7,11 +9,11 @@ export default struct RecommendShow {
         ListItem() {
           Column() {
             //todo:点击跳转购买页功能
+            //todo:优化代码
             Row() {
               this.Item($r("app.media.buy_Item"), 'Magic 6 pro 遥遥领先', 199, 25)
               this.Item($r("app.media.buy_Item"), 'Magic 6 pro 遥遥领先', 199, 25)
             }
-
 
             Row() {
               this.Item($r("app.media.buy_Item"), 'Magic 6 pro 遥遥领先', 199, 25)
@@ -43,6 +45,8 @@ export default struct RecommendShow {
 
   }
 
+  //todo:点击跳转功能
+
   @Builder
   Item(image: ResourceStr, name: string, money: number, number: number) {
 
@@ -57,6 +61,21 @@ export default struct RecommendShow {
 
     }
     .width('50%')
+    .onClick(() => {
 
+      router.pushUrl(
+        {
+          url: 'pages/buy_buyPage',
+        },
+        router.RouterMode.Single,
+        err => {
+          if (err) {
+            console.log('errCode: ' + err.code + 'errMsg:' + err.message)
+          }
+        }
+
+      )
+
+    })
   }
 }

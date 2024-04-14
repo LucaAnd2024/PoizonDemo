@@ -40,7 +40,7 @@ export default struct user_creation {
       Image(image)
         .width(20)
       Text(title)
-        .fontSize(12)
+        .fontSize(13)
     }
     .width('20%')
   }
