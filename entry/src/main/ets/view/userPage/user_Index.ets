@@ -5,29 +5,13 @@ import user_interaction from './user_interaction'
 
 import user_buyDetail from './user_buyDetail'
 import user_order from './user_order'
-@Extend(Text)
-function light_character() {
-  .fontSize(13)
-  .fontColor($r('app.color.light_gray'))
-
-}
-
-@Extend(Text)
-function normal_character() {
-  .fontSize(13)
-  .fontColor($r('app.color.light_gray'))
-
-}
-
-@Extend(Text)
-function bold_character() {
-  .fontSize(13)
-  .fontColor($r('app.color.light_gray'))
-
-}
+import likeItemModel from '../../model/LikeItemModel'
 
 @Component
-export default struct userIndex {
+export default struct user_Index {
+  @Prop NumOfCart:number
+
+
   build() {
     Column({ space: 8 }) {
       user_Header()
@@ -38,7 +22,8 @@ export default struct userIndex {
       // 4.创作中心
       user_creation()
       // 5.购物相关卡片
-      user_buyDetail()
+      user_buyDetail({NumOfCart:this.NumOfCart})
+
       // 6.订单卡片
       user_order()
       // 7.钱包

@@ -1,45 +1,46 @@
-import buy_RecommendShow from './buy_RecommendShow'
+import router from '@ohos.router'
+import GoodInfoModel from '../../model/GoodInfoModel'
+import ItemInfoModel from '../../model/GoodInfoModel'
+import likeItemModel from '../../model/LikeItemModel'
+import GoodInfo from '../../viewmodel/GoodInfo'
+import ItemInfo from '../../viewmodel/GoodInfo'
 
 
 @Component
 export default struct buy_productList {
-
+  @State Number: String[] = ['0', '1']
+  scroller: Scroller = new Scroller()
 
   build() {
     Column() {
 
       // 1)分类文本
+      //todo:优化代码
       Stack() {
         Tabs() {
           TabContent() {
             //商品展示页
-            buy_RecommendShow()
+            this.TabContentBuilder(GoodInfoModel.list())
           }.tabBar('推荐')
 
           TabContent() {
-            Text('鞋类')
-              .fontSize(16)
-          }.tabBar('鞋类')
+            this.TabContentBuilder(GoodInfoModel.list())
+          }.tabBar('书籍')
 
           TabContent() {
-            Text('包袋')
-              .fontSize(16)
-          }.tabBar('包袋')
+            this.TabContentBuilder(GoodInfoModel.list())
+          }.tabBar('数码')
+
+
 
           TabContent() {
-            Text('配饰')
-              .fontSize(16)
-          }.tabBar('配饰')
-
-          TabContent() {
-            Text('女装')
+            Text('前方的区域，以后再来探索吧')
               .fontSize(16)
           }.tabBar('女装')
 
           TabContent() {
-            Text('潮服')
-              .fontSize(16)
-          }.tabBar('潮服')
+            this.TabContentBuilder(GoodInfoModel.list())
+          }.tabBar('衣服')
 
           TabContent() {
             Text('手机')
@@ -55,6 +56,8 @@ export default struct buy_productList {
         .barMode(BarMode.Scrollable)
         .barPosition(BarPosition.Start)
         .layoutWeight(1)
+        .width('100%')
+        .height('80%')
 
         // 2）分类按钮
         //todo:点击跳转功能
@@ -69,11 +72,68 @@ export default struct buy_productList {
         .height(40)
         .position({ x: 255, y: 8 })
 
-
       }
     }
 
     .height('100%')
     .width('90%')
   }
+
+  @Builder
+  TabContentBuilder(items: GoodInfo[]) {
+    Grid(this.scroller) {
+      ForEach(items, (item: GoodInfo, index: number) => {
+        GridItem() {
+          GoodList({ item: items[index] })
+        }
+      })
+    }
+    .columnsTemplate('1fr 1fr')
+    .width('100%')
+    .height('100%')
+
+
+  }
 }
+
+@Component
+struct GoodList {
+  @ObjectLink item: GoodInfo;
+
+  build() {
+    Column() {
+      Image(this.item.image)
+      Text(this.item.name)
+      Row() {
+        Text(this.item.price + '元')
+        Blank('25')
+        Text(this.item.peopleBuy + '人已购')
+          .fontSize(16)
+      }
+    }
+    .width(162)
+    .onClick(() => {
+
+      router.pushUrl(
+        {
+          url: 'view/buyPage/buy_buyPage',
+          params: { Index: this.item.id, MyUrl: 'pages/Index' }
+
+        },
+        router.RouterMode.Single,
+
+        err => {
+          if (err) {
+            console.log('errCode: ' + err.code + 'errMsg:' + err.message)
+          }
+        }
+
+      )
+    })
+  }
+}
+
+
+
+
+

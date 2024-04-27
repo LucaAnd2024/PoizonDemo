@@ -14,7 +14,7 @@ export default struct user_order {
           .fontSize(14)
           .fontColor($r('app.color.light_gray'))
           .margin({ right: 4 })
-        Image($r('app.media.user_arrow'))
+        Image($r("app.media.user_arrow"))
           .width(15)
 
       }

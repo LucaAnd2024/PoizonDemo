@@ -13,6 +13,10 @@
       "value": "#77c0c1"
     },
     {
+      "name": "user_wantPageBuyIcon",
+      "value": "#77c0c1"
+    },
+    {
       "name": "searchBarBackground",
       "value": "#f5f4f9"
     },
@@ -20,6 +24,11 @@
       "name": "user_gift",
       "value": "#5df7fa"
     },
+    {
+      "name": "user_wantDel",
+      "value": "#eb555c"
+    },
+
     {
       "name": "White",
       "value": "#ffffff"
@@ -31,6 +40,14 @@
     {
       "name": "user_PageBackground",
       "value": "#f5f4fb"
+    },
+    {
+      "name": "buy_PageBackground",
+      "value": "#f4f3f8"
+    },
+    {
+      "name": "buy_buyButton",
+      "value": "#FF4DCBCD"
     },
     {
       "name": "index_page_background",
