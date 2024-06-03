@@ -28,6 +28,11 @@ export const delCart = (good: GoodInfo) => {
 }
 
 
+// export const delCartById = (id: number) => {
+//   // LikeItems = LikeItems.filter(item => item.id !== id);
+//   LikeItems.splice(id, 1)
+// }
+
 export const delCartById = (id: number) => {
   // LikeItems = LikeItems.filter(item => item.id !== id);
   LikeItems.splice(id, 1)

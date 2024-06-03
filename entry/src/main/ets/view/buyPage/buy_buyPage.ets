@@ -35,32 +35,32 @@ struct Buy_buyPage {
 
       Scroll(this.scroller) {
         Column({ space: 6 }) {
-          if (this.good.p1 || this.good.p2) {
-            //2. 照片
-              //todo:导航点样式
-              Swiper() {
-                Image(this.good.p1)
-                  .width('100%')
-                Image(this.good.p2)
-                  .width('100%')
-            }
-
-            //3. 图片展示
-            //todo:实现跳转
-            Row({ space: 8 }) {
-              Image(this.good.p1)
-                .width(50)
-
-              Image(this.good.p2)
-                .width(50)
-
-            }
-            .width('94%')
-          } else {
-              //todo:导航点样式
-              Image(this.good.image)
-                .width('100%')
-          }
+          // if (this.good.p1 || this.good.p2) {
+          //   //2. 照片
+          //     //todo:导航点样式
+          //     Swiper() {
+          //       Image(this.good.p1)
+          //         .width('100%')
+          //       Image(this.good.p2)
+          //         .width('100%')
+          //   }
+          //
+          //   //3. 图片展示
+          //   //todo:实现跳转
+          //   Row({ space: 8 }) {
+          //     Image(this.good.p1)
+          //       .width(50)
+          //
+          //     Image(this.good.p2)
+          //       .width(50)
+          //
+          //   }
+          //   .width('94%')
+          // } else {
+          //     //todo:导航点样式
+          //     Image(this.good.image)
+          //       .width('100%')
+          // }
 
 
           //4. 详情价格

@@ -5,6 +5,8 @@
     "view/buyPage/buy_buyPage",
     "view/buyPage/buy_SearchPage",
     "view/userPage/user_wantPage",
-    "view/buyPage/buy_searchedGoodPage"
+    "view/buyPage/buy_searchedGoodPage",
+    "pages/RegisterPage",
+    "pages/LoginPage"
   ]
 }

@@ -9,19 +9,11 @@ import GoodInfo from '../viewmodel/GoodInfo'
 
 @Entry
 @Component
-struct Index {
+struct TEST {
   @State currentIndex: number = 1
   @State NumOfCart: number = 0
   @State GoodsByAxios: GoodInfo[] = [];
-
-  pageTransition() {
-    // 定义页面进入时的效果，从左侧滑入，时长为1200ms，无论页面栈发生push还是pop操作均可生效
-    PageTransitionEnter({ type: RouteType.None, duration: 10 })
-      .slide(SlideEffect.Left)
-    // 定义页面退出时的效果，向左侧滑出，时长为1000ms，无论页面栈发生push还是pop操作均可生效
-    PageTransitionExit({ type: RouteType.None, duration: 10 })
-      .slide(SlideEffect.Left)
-  }
+  scroller: Scroller = new Scroller()
 
   onPageShow() {
     this.NumOfCart = countCart()
@@ -39,6 +31,7 @@ struct Index {
         console.error('加载商品失败:', error);
       });
   }
+
   // 2. 将商品列表存储进本地化数据
   // 3. 获取商品列表并展示
 
@@ -57,27 +50,31 @@ struct Index {
   }
 
   build() {
-    Tabs({ barPosition: BarPosition.End, index: 1 }) {
-      TabContent() {
-        Text("推荐")
-      }.tabBar(this.TabBerBuilder($r('app.string.tab_commend'), $r('app.media.tab_commend'), 0))
+    Column() {
 
-      TabContent() {
-        buy_buyIndex()
-      }.tabBar(this.TabBerBuilder($r('app.string.tab_buy'), $r('app.media.tab_buy'), 1))
-
-      TabContent() {
-        Text("探索")
-      }.tabBar(this.TabBerBuilder($r('app.string.tab_explore'), $r('app.media.tab_explore'), 2))
-
-      TabContent() {
-        user_Index({ NumOfCart: this.NumOfCart })
-      }.tabBar(this.TabBerBuilder($r('app.string.tab_user'), $r('app.media.tab_user'), 3))
+      Grid(this.scroller) {
+        ForEach(this.GoodsByAxios, (item: GoodInfo, index: number) => {
+          GridItem() {
+            Column() {
+              Image("https://dummyimage.com/400x400")// 直接加载网络地址，请填写一个具体的网络图片地址
+                .alt($r('app.media.app_icon'))// 使用alt，在网络图片加载成功前使用占位图
+                .width(100)
+                .height(100)
+              Text(item.product_name)
+                .fontSize(22)
+              Text(item.price + '元')
+            }
+            .width('100%')
+            .height('100%')
+          }
+        })
+      }
+      .columnsTemplate('1fr 1fr')
+      .width('100%')
+      .height('100%')
 
     }
-    .width('100%')
-    .height('100%')
-    .onChange(index => this.currentIndex = index)
+
   }
 }
 

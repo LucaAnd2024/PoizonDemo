@@ -163,14 +163,15 @@ struct GoodList {
 
   build() {
     Column() {
+      // Text(this.item.name)
+      Text(this.item.product_name)
       Image(this.item.image)
-      Text(this.item.name)
-      Row() {
-        Text(this.item.price + '元')
-        Blank('25')
-        Text(this.item.peopleBuy + '人已购')
-          .fontSize(16)
-      }
+      // Row() {
+      //   Text(this.item.price + '元')
+      //   Blank('25')
+      //   Text(this.item.peopleBuy + '人已购')
+      //     .fontSize(16)
+      // }
     }
     .width(162)
     .onClick(() => {

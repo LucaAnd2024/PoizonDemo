@@ -1,4 +1,5 @@
 import router from '@ohos.router'
+import userModel from '../model/UserModel'
 
 @Entry
 @Component
@@ -10,10 +11,18 @@ struct Welcome_Page {
 
   jumpToIndex() {
     setTimeout(() => {
-      router.replaceUrl({
-        url: 'pages/Index',
+      if (!userModel.isLoggedIn()) {
+        router.replaceUrl({
+          url: 'pages/LoginPage',
 
-      })
+        })
+      } else {
+        router.replaceUrl({
+          url: 'pages/Index',
+
+        })
+      }
+
     }, 1000)
 
   }

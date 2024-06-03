@@ -2,7 +2,7 @@ import router from '@ohos.router'
 import KeyWordModel from '../../model/KeyWordModel'
 
 import { KeyWord } from '../../viewmodel/KeyWord'
-
+@Preview
 @Component
 export default struct buy_SearchBar {
   @State keywords:KeyWord[]=KeyWordModel.list()

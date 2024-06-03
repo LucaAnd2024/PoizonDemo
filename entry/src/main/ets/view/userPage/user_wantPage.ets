@@ -47,65 +47,65 @@ struct WantItem {
     List() {
       ForEach(this.LikeItems, (item: LikeItem,index:number) => {
         ListItem() {
-          if (item.like) {
-            Row() {
-
-
-              Image(item.image)
-                .width(100)
-                .borderWidth(0.3)
-                .borderColor($r('app.color.light_gray'))
-                .margin({ right: 8, left: 8 })
-              Column() {
-
-                Text(item.slogan)
-                  .margin({ top: 8, left: 10 })
-                  .width('100%')
-                  .maxLines(2)
-                  .margin({ top: 18, left: 8, right: 8 })
-                  .fontSize(14)
-                  .height('40%')
-
-
-                Row() {
-                  Image($r('app.media.app_icon'))
-                    .width(22)
-                  Text(`￥`)
-                    .fontSize(18)
-                    .fontWeight(FontWeight.Bold)
-
-                  Text(item.price + '')
-                    .fontSize(25)
-                    .fontWeight(FontWeight.Bold)
-                }
-
-                .width('100%')
-                .layoutWeight(1)
-
-              }
-              .width('70%')
-              .height('100%')
-
-            }
-            .height(140)
-            .backgroundColor($r('app.color.White'))
-            .width('100%')
-            .onClick(() => {
-
-              router.pushUrl(
-                {
-                  url: 'view/buyPage/buy_buyPage',
-                  params: { item: item as ItemInfo, MyUrl: 'view/userPage/user_wantPage' }
-                },
-                router.RouterMode.Single,
-                err => {
-                  if (err) {
-                    console.log('errCode: ' + err.code + 'errMsg:' + err.message)
-                  }
-                }
-              )
-            })
-          }
+          // if (item.like) {
+          //   Row() {
+          //
+          //
+          //     Image(item.image)
+          //       .width(100)
+          //       .borderWidth(0.3)
+          //       .borderColor($r('app.color.light_gray'))
+          //       .margin({ right: 8, left: 8 })
+          //     Column() {
+          //       //
+          //       // Text(item.slogan)
+          //       //   .margin({ top: 8, left: 10 })
+          //       //   .width('100%')
+          //       //   .maxLines(2)
+          //       //   .margin({ top: 18, left: 8, right: 8 })
+          //       //   .fontSize(14)
+          //       //   .height('40%')
+          //
+          //
+          //       Row() {
+          //         Image($r('app.media.app_icon'))
+          //           .width(22)
+          //         Text(`￥`)
+          //           .fontSize(18)
+          //           .fontWeight(FontWeight.Bold)
+          //
+          //         Text(item.price + '')
+          //           .fontSize(25)
+          //           .fontWeight(FontWeight.Bold)
+          //       }
+          //
+          //       .width('100%')
+          //       .layoutWeight(1)
+          //
+          //     }
+          //     .width('70%')
+          //     .height('100%')
+          //
+          //   }
+          //   .height(140)
+          //   .backgroundColor($r('app.color.White'))
+          //   .width('100%')
+          //   .onClick(() => {
+          //
+          //     router.pushUrl(
+          //       {
+          //         url: 'view/buyPage/buy_buyPage',
+          //         params: { item: item as ItemInfo, MyUrl: 'view/userPage/user_wantPage' }
+          //       },
+          //       router.RouterMode.Single,
+          //       err => {
+          //         if (err) {
+          //           console.log('errCode: ' + err.code + 'errMsg:' + err.message)
+          //         }
+          //       }
+          //     )
+          //   })
+          // }
 
         }
         .swipeAction({ end:this.itemEnd(index)})
